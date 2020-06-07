@@ -1,0 +1,59 @@
+UNINSTALL
+
+
+
+sudo service mongod stop
+sudo apt-get purge mongodb-org*
+
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+
+INSTALL
+
+Ubuntu 18.04 
+
+follow:
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+
+sudo apt-get install gnupg
+
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+
+sudo apt-get update
+
+sudo apt-get install -y mongodb-org=4.2.3 mongodb-org-server=4.2.3 mongodb-org-shell=4.2.3 mongodb-org-mongos=4.2.3 mongodb-org-tools=4.2.3
+
+sudo systemctl start mongod
+
+
+// start the mongo
+ mongo
+ 
+ 
+ 
+ Other Commands:
+ 
+ You can optionally ensure that MongoDB will start following a system reboot by issuing the following command:
+ sudo systemctl enable mongod
+ 
+ 
+ ----------------------------------------------------------------------------------------------------
+ 
+ sudo systemctl stop mongod
+ 
+ sudo systemctl restart mongod
+ 
+ sudo service mongod start
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
